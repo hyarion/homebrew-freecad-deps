@@ -11,7 +11,7 @@ first untap freecad/freecad and remove all packages that is installed from that 
 
 install dependencies:
 
-`brew install qt@5 pyqt@5 pyside@2 opencascade vtk@8.2`
+`brew install qt@5 pyqt@5 pyside@2 opencascade vtk@8.2 boost boost-python3 coin3d`
 
 install additional dependencies:
 
@@ -30,7 +30,7 @@ string(STRIP "${PYTHON_INCLUDE_DIRS}" PYTHON_INCLUDE_DIRS)
 to `/usr/local/opt/pyside\@2/lib/cmake/Shiboken2-5.15.2/shiboken_helpers.cmake` just above the line (around line 353):
 
 ```
-if (SHIBOKEN_COMPUTE_INCLUDES_IS_CALLED_FROM_EXPORT)` at around line 353
+if (SHIBOKEN_COMPUTE_INCLUDES_IS_CALLED_FROM_EXPORT)
 ```
 
 Run cmake like this from your build directory:
@@ -57,6 +57,8 @@ cmake \
         -DCMAKE_BUILD_TYPE=release \
         ../FreeCAD-git
 ```
+
+for m1, add `-DBUILD_WEB:BOOL=OFF \` (webengine is not yet supported in qt on m1)
 
 ## Run FreeCAD
 Freecad can now be run with `./bin/FreeCAD -P /usr/local/opt/pyside@2/lib/python3.9/site-packages;/usr/local/opt/coin3d/lib/python3.9/site-packages/`
