@@ -61,4 +61,4 @@ cmake \
 for m1, add `-DBUILD_WEB:BOOL=OFF \` (webengine is not yet supported in qt on m1)
 
 ## Run FreeCAD
-Freecad can now be run with `./bin/FreeCAD -P /usr/local/opt/pyside@2/lib/python3.9/site-packages;/usr/local/opt/coin3d/lib/python3.9/site-packages/`
+Freecad can now be run with `./bin/FreeCAD -P /usr/local/opt/pyside@2/lib/python3.9/site-packages -P /usr/local/opt/coin3d/lib/python3.9/site-packages/`
